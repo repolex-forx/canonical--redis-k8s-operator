@@ -8,7 +8,7 @@
     {
       "@id": "https://repolex.ai/r/canonical/redis-k8s-operator/commit/06916763661c75972ccf2f27ee0b9579e4647112",
       "git:hexsha": "06916763661c75972ccf2f27ee0b9579e4647112",
-      "repolex:parseStatus": "metadata_complete",
+      "repolex:parseStatus": "ast_complete",
       "git:tagName": "rev42"
     },
     {
