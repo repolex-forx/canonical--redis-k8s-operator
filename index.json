@@ -1,0 +1,11 @@
+{
+  "org": "canonical",
+  "repo": "redis-k8s-operator",
+  "versions": [
+    {
+      "commit": "06916763661c75972ccf2f27ee0b9579e4647112",
+      "tag": "rev42",
+      "parsed_at": "2026-11-08T16:05:34.843974+00:00"
+    }
+  ]
+}

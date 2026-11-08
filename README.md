@@ -1,1 +1,115 @@
-Initializing
+# Repolex Knowledge Graph of canonical/redis-k8s-operator
+
+RDF knowledge graph data for [canonical/redis-k8s-operator](https://github.com/canonical/redis-k8s-operator), parsed by [repolex](https://repolex.ai).
+
+> **Note**: This data is experimental and subject to change without notice.
+
+## How to use this data
+
+The easiest way to get started is to install the [rlex](https://github.com/repolex-ai/rlex) query tool:
+
+```bash
+cargo install --git https://github.com/repolex-ai/rlex
+```
+
+Verify the install:
+
+```bash
+rlex --help
+```
+
+**rlex is designed to be used primarily by LLMs in a terminal.** Start up your favorite AI assistant and ask it to use rlex. It handles the SPARQL — you just ask questions in plain English.
+
+To load this repo's data:
+
+```bash
+rlex download canonical/redis-k8s-operator
+```
+
+Consult `rlex --help` for other options, including SPARQL queries, HTTP server, and interactive visualization.
+
+## Data structure
+
+All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) (`.nq.gz`), a standard RDF format that can be loaded into any triplestore or graph database.
+
+```
+.
+├── aggregate
+│   ├── ast
+│   │   └── 06916763661c75972ccf2f27ee0b9579e4647112
+│   │       └── chunk-001.nq.gz
+│   └── repolex
+│       └── 06916763661c75972ccf2f27ee0b9579e4647112
+│           └── chunk-001.nq.gz
+├── blob
+│   ├── 0240a576cc7f058882368889e4427651740f02a3.nq.gz
+│   ├── 05dc4e23efc7f0fcf066096fb55bf1326742330d.nq.gz
+│   ├── 0d713c2555e40a23bf72dc0c36a9f03468cf9945.nq.gz
+│   ├── 15d844f56cfc7c6c9f38f749d7de27810c4ed99a.nq.gz
+│   ├── 16e12946492e73389c70421e1e8a0b525973a505.nq.gz
+│   ├── 1f1bc4f0cb5f30f41dbe38064ef3bbab864f496d.nq.gz
+│   ├── 27a3cf7f514364aaa21ec5e2f3444e23619daf7b.nq.gz
+│   ├── 31047bdb62501fd937edf520fe569e96adda9910.nq.gz
+│   ├── 3ccff7ac5fdbd6e6d8331e7568573eab0566006e.nq.gz
+│   ├── 4622a5a1633fcaffce6f4b9a716512ffc011a0a6.nq.gz
+│   ├── 4e48e9a43d1f8d0b221c423d77b24a608599238f.nq.gz
+│   ├── 55d85ac47321d170d4619b4c9c14352e847d2347.nq.gz
+│   ├── 5b5c8424492b249ffe207eb1bfeccfdba98eb072.nq.gz
+│   ├── 65273c446d1c263eccdc1b681c3d0778116932d5.nq.gz
+│   ├── 6f5fbec1e3d34eeb8456a7120c25b8d066f06c77.nq.gz
+│   ├── 7620f949e96d50b153511e3ff925c63590574419.nq.gz
+│   ├── 8c9609286c5bd514c31372999fa54fe9cacea701.nq.gz
+│   ├── 923baab103f7118e214b0fd85410fe2ade0c2fcf.nq.gz
+│   ├── a46edc55af684f197e0e1284a963ff4af8a3b7be.nq.gz
+│   ├── a79e5d4343e09bc07819c1a444ef89d509067388.nq.gz
+│   ├── ad9d6dfe2f098f404174ce697d6b0839e0079455.nq.gz
+│   ├── ae797122466a3202b7a9907c6e083bfad43c8ed0.nq.gz
+│   ├── b66b1a483596d81140a5124a3ade057d0d165a5b.nq.gz
+│   ├── b7cb05df9dc113b59e8073544fd96e8bf02940ce.nq.gz
+│   ├── b8564822ff189a7e9b5039ceda77e4f6af2060b9.nq.gz
+│   ├── b89e2829c2539e3e3b768285086bbcc83cccab9e.nq.gz
+│   ├── be26ee3b9eea9b728fd1ad646de0566d601b2891.nq.gz
+│   ├── cf069ab2e31e0bc00e91379b7b654734cb6bc72e.nq.gz
+│   ├── d4d2f2a7bc973d88ad179f1b2304e72739086509.nq.gz
+│   ├── e28b14c2de9526b516aefaed241cc29d2a8c7bfc.nq.gz
+│   ├── e3d35c6f308b627d185f4a8ea654acab0fae1654.nq.gz
+│   ├── ea5f5db900e03b5f3c83e78de8d3592820d01143.nq.gz
+│   ├── f33b7bb94085d5fcd08345185e99a2112494d019.nq.gz
+│   ├── f490aafbc98281ee95f0e64cb0943569920df8e7.nq.gz
+│   ├── f4cd305c6eac83bbaf7d6afa607feb5394702ed4.nq.gz
+│   └── fe3e8aff38336594d2220f0c0756d51ebd1c4b5f.nq.gz
+├── branch
+│   └── branch.nq.gz
+├── commit
+│   └── commit.nq.gz
+├── filetree
+│   └── 06916763661c75972ccf2f27ee0b9579e4647112.nq.gz
+├── issue
+│   └── issue.nq.gz
+├── pr
+│   └── pr.nq.gz
+└── tag
+    └── tag.nq.gz
+
+13 directories, 44 files
+```
+
+| Directory | What it contains |
+|-----------|-----------------|
+| `blob/` | Per-file AST graphs, content-addressed by git blob SHA. Each file in the source repo gets its own graph. |
+| `aggregate/ast/` | Combined AST graph per parsed commit. Merges all blob graphs for a snapshot of the entire codebase at that point. |
+| `aggregate/lsp/` | Language Server Protocol enrichment: resolved symbols, definitions, references, and type information. |
+| `aggregate/dataflow/` | Interprocedural data flow edges between functions and modules. |
+| `aggregate/repolex/` | Combined graph (AST + LSP + dataflow) per commit. |
+| `commit/` | Git commit metadata (author, date, message, parent links). |
+| `branch/` | Branch metadata. |
+| `tag/` | Tag metadata. |
+| `filetree/` | File tree snapshots per commit (which files existed and their blob SHAs). |
+| `audit/` | Code architecture and graph audit reports per commit. |
+
+## Source repository
+
+[canonical/redis-k8s-operator](https://github.com/canonical/redis-k8s-operator)
+
+---
+*Parsed on 2026-11-08 by [repolex](https://repolex.ai)*
